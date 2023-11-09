@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+    // Get the value of 'views' from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const views = urlParams.get('views');
+
+    // Update the content on the service1 page with the 'views' value
+    const pageviewsCount = document.getElementById('pageviews-count');
+    if (pageviewsCount) {
+      pageviewsCount.textContent = views; // Display 'views' on the service1 page
+    }
+  });
+    </script>
+</body>
+</html>

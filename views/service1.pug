@@ -1,0 +1,49 @@
+doctype html
+html(lang='en')
+  head
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='public/css/main.css')
+    link(rel="stylesheet", href='public/css/fontello.css')
+    title Animated Dropdown Menu
+  body.subpage
+    .content
+      .menu
+        a#aboutMe(href='/')
+          div#engAbout.toggle-element.visible About Me
+          div#polAbout.pol.toggle-element O mnie
+        .dropdown
+          a#projects(href='/')
+            div#projectsEng.services.toggle-element.visible Projects
+            div#projectsPol.services.toggle-element Projekty
+          .dropdown-content.hidden(style='display: none;')
+            a#apps.service(href="/service1", onclick='hidemenu()')
+              i.icon-laptop
+            a#mech.service(href='/service2', onclick='hidemenu()')
+            a#games.service(href='/service3', onclick='hidemenu()')
+        div#lang(onclick="toggleElements()")
+          img(src='https://cdn.glitch.global/fa1cb8d5-4868-42bc-bf52-27fcc0455e8f/POL.jpg?v=1699542939034')#eng.toggle-element.visible
+          img(src='https://cdn.glitch.global/fa1cb8d5-4868-42bc-bf52-27fcc0455e8f/UK.jpg?v=1699539920089')#pol.toggle-element
+        div#visits
+          a#visitEng.visits.toggle-element.visible
+          a#visitPol.visits.toggle-element 
+    .main
+      .mainContent
+        #homeContent(style="width: 100vw")
+          |tg
+    script(type='text/javascript').
+      window.addEventListener('load', function () {
+      // Get the 'views' value from localStorage
+      const views = localStorage.getItem('views');
+      console.log(views);
+      // Update the content on the service1 page with the 'views' value
+      const pageviewsCount = document.getElementById('visitEng');
+      const pageviewsCount1 = document.getElementById('visitPol');
+      if (pageviewsCount) {
+      pageviewsCount.textContent = 'Visits: ' + views; // Display 'views' on the service1 page
+      pageviewsCount1.textContent = 'Wizyty: ' + views;
+      }
+      });
+img.code(src='https://cdn.glitch.global/fa1cb8d5-4868-42bc-bf52-27fcc0455e8f/bg1.jpg?v=1699537324895')
+script(src='public/dropdown.js')
